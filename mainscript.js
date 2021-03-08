@@ -182,7 +182,7 @@ function action_trigger() {
 
     // send an event to the bot, so that bot can start the conversation by greeting the user
     $.ajax({
-        url: `https://rasa-main-server.azurewebsites.net/conversations/${user_id}/execute`,
+        url: `https://rasa-chatbot.azurewebsites.net/conversations/${user_id}/execute`,
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({ "name": action_name, "policy": "MappingPolicy", "confidence": "0.98" }),
@@ -287,7 +287,7 @@ function scrollToBottomOfResults() {
 function send(message) {
 
     $.ajax({
-        url: "https://rasa-main-server.azurewebsites.net/webhooks/rest/webhook",
+        url: "https://rasa-chatbot.azurewebsites.net/webhooks/rest/webhook",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify({ message: message, sender: user_id }),
